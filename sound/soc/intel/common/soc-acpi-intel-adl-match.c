@@ -8,6 +8,11 @@
 #include <sound/soc-acpi.h>
 #include <sound/soc-acpi-intel-match.h>
 
+static const struct snd_soc_acpi_codecs essx_83x6 = {
+	.num_codecs = 3,
+	.codecs = { "ESSX8316", "ESSX8326", "ESSX8336"},
+};
+
 static const struct snd_soc_acpi_endpoint single_endpoint = {
 	.num = 0,
 	.aggregated = 0,
@@ -489,13 +494,6 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_adl_machines[] = {
 		.id = "CSC3541",
 		.drv_name = "adl_cs35l41",
 		.sof_tplg_filename = "sof-adl-cs35l41.tplg",
-	},
-	{
-		.comp_ids = &essx_83x6,
-		.drv_name = "adl_es83x6_c1_h02",
-		.machine_quirk = snd_soc_acpi_codec_list,
-		.quirk_data = &adl_lt6911_hdmi,
-		.sof_tplg_filename = "sof-adl-es83x6-ssp1-hdmi-ssp02.tplg",
 	},
 	{
 		.comp_ids = &essx_83x6,
